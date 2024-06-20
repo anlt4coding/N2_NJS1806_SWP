@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
   CButton,
   CCard,
@@ -10,29 +10,30 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
-} from '@coreui/react'
+} from '@coreui/react';
 import { useNavigate } from 'react-router-dom';
 import fetchData from '../../util/ApiConnection';
-// import CIcon from '@coreui/icons-react'
-// import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
-  const [emailMessage, setEmailMessage] = useState('')
+  const [emailMessage, setEmailMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleForgotPassword = (e) => {
+  const handleForgotPassword = async (e) => {
     e.preventDefault();
 
-    fetchData(`http://localhost:8080/api/v1/auth/send-recover/${email}`,
-      'GET', null)
-      .then(data => {
-        if (data.status === 'ERROR') {
-          setEmailMessage("Email has not been registered or invalid");
-        } else {
-          setEmailMessage("An email reset password was sent. Please check your email!!!");
-        }
-      })
+    try {
+      const data = await fetchData(`http://localhost:8080/api/v1/auth/send-recover/${email}`, 'GET', null);
+      if (data.status === 'ERROR') {
+        setEmailMessage("Email has not been registered or invalid");
+        throw new Error("Email has not been registered or invalid");
+      } else {
+        setEmailMessage("An email reset password was sent. Please check your email!!!");
+      }
+    } catch (error) {
+      console.error('Error requesting password reset:', error);
+      // Handle the error as needed (e.g., log it, display a message to the user, etc.)
+    }
   };
 
   return (
@@ -71,4 +72,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword
+export default ForgotPassword;
