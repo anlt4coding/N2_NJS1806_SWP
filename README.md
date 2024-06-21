@@ -44,61 +44,61 @@ The software is designed to manage jewelry sales for a company operating a singl
 ## Team Member Assignment Table
 
 ### Table 1: User Stories of Each Sprint
-| Sprint   | User Story ID  | Description                |
-|----------|----------------|----------------------------|
-| Sprint 1 | N2NJS1806-65   | Login                      |
-|          | N2NJS1806-67   | Logout                     |
-|          | N2NJS1806-68   | Reset Password             |
-|          | N2NJS1806-69   | View Account               |
-|          | N2NJS1806-70   | Create Account             |
-|          | N2NJS1806-71   | Edit Account               |
-|          | N2NJS1806-72   | Delete Account             |
-| Sprint 2 | ...    | View Profile               |
-|          | ...    | Update Profile             |
-|          | ...    | Search Staff               |
-|          | ...    | Create Staff               |
-|          | ...    | Edit Staff                 |
-|          | ...    | Delete Staff               |
-|          | ...    | View Promotion             |
-|          | ...    | Create Promotion           |
-|          | ...    | Update Promotion           |
-|          | ...    | Delete Promotion           |
-|          | ...    | View Policies              |
-|          | ...    | Edit Policies              |
-|          | ...    | Delete Policies            |
-|          | ...    | Create Orders              |
-|          | ...    | Update Orders              |
-|          | ...    | Delete Orders              |
-|          | ...    | View Orders                |
-| Sprint 3 | ...    | Print bill from Order      |
-|          | ...    | Export bills               |
-|          | ...    | Import product by barcode  |
-|          | ...    | Apply Promotion to Order   |
-|          | ...    | Add stall                  |
-|          | ...    | Update stall               |
-|          | ...    | View stall                 |
-|          | ...    | Add customers              |
-|          | ...    | Update customers           |
-|          | ...    | Delete customers           |
-|          | ...    | View customers             |
-| Sprint 4 | ...    | Add Product to Stall       |
-|          | ...    | Edit Product               |
-|          | ...    | View Products in Stall     |
-|          | ...    | Delete Product             |
-|          | ...    | Product Dashboard          |
-|          | ...    | Staff Dashboard            |
-|          | ...    | Revenue Dashboard          |
-|          | ...    | Create Policies            |
-|          | ...    | Orders Dashboard           |
+| Sprint   | Description                |
+|----------|----------------------------|
+| Sprint 1 | Login                      |
+|          | Logout                     |
+|          | Reset Password             |
+|          | View Account               |
+|          | Create Account             |
+|          | Edit Account               |
+|          | Delete Account             |
+| Sprint 2 | View Profile               |
+|          | Update Profile             |
+|          | Search Staff               |
+|          | Create Staff               |
+|          | Edit Staff                 |
+|          | Delete Staff               |
+|          | View Promotion             |
+|          | Create Promotion           |
+|          | Update Promotion           |
+|          | Delete Promotion           |
+|          | View Policies              |
+|          | Edit Policies              |
+|          | Delete Policies            |
+|          | Create Orders              |
+|          | Update Orders              |
+|          | Delete Orders              |
+|          | View Orders                |
+| Sprint 3 | Print bill from Order      |
+|          | Export bills               |
+|          | Import product by barcode  |
+|          | Apply Promotion to Order   |
+|          | Add stall                  |
+|          | Update stall               |
+|          | View stall                 |
+|          | Add customers              |
+|          | Update customers           |
+|          | Delete customers           |
+|          | View customers             |
+| Sprint 4 | Add Product to Stall       |
+|          | Edit Product               |
+|          | View Products in Stall     |
+|          | Delete Product             |
+|          | Product Dashboard          |
+|          | Staff Dashboard            |
+|          | Revenue Dashboard          |
+|          | Create Policies            |
+|          | Orders Dashboard           |
 
 ### Table 2: Member Assignment for Sprint 1
-| Member Name | User Story ID | Description            |
-|-------------|---------------|------------------------|
-| Do Trong Minh    | N2NJS1806-65   | Login                  |
-| Le Thu An    | N2NJS1806-67   | Logout                 |
-| Do Trong Minh    | N2NJS1806-68   | Reset Password         |
-| ...    | N2NJS1806-69   | View Account           |
-| ...    | N2NJS1806-70   | Create Account         |
-| ...    | N2NJS1806-71   | Edit Account           |
-| ...    | N2NJS1806-72   | Delete Account         |
+| Member Name | Description            |
+|-------------|------------------------|
+| Do Trong Minh    | Login                  |
+| Le Thu An    | Logout                 |
+| Do Trong Minh    | Reset Password         |
+| Tran Duy    | View Account           |
+| Chau Ngoc Anh Tri    | Create Account         |
+| Tran Duc Tri    | Edit Account           |
+| Doan Tran Quang Nhut    | Delete Account         |
 

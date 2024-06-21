@@ -46,7 +46,6 @@ const AccountList = () => {
 
     const handleSave = async () => {
         try {
-            console.log(formData)
             const newData = data.map((row) => {
                 if (row.id === editingRow) {
                     return { ...row, ...formData }
@@ -75,7 +74,6 @@ const AccountList = () => {
                 status: dataFromInput.status ? true : false,
                 roleId
             };
-            console.log(savedData)
 
             const existingUserResponse = await fetchData(`http://localhost:8080/api/v1/users/id/${editingRow}`, 'GET', null, userInfo.accessToken)
             if (existingUserResponse.status === "SUCCESS") {
@@ -91,7 +89,16 @@ const AccountList = () => {
                 refreshData()
             }, 1000)
         } catch (error) {
-            setErrorMessage('Failed to save account information. Please try again.')
+            // Check if error response contains specific duplicate messages
+            if (error.message.includes('Username already exists')) {
+                setErrorMessage('Username already exists. Please choose a different username.')
+            } else if (error.message.includes('Phone number already exists')) {
+                setErrorMessage('Phone number already exists. Please choose a different phone number.')
+            } else if (error.message.includes('Email already exists')) {
+                setErrorMessage('Email already exists. Please choose a different email.')
+            } else {
+                setErrorMessage('Failed to save account information. Please try again.')
+            }
         }
     }
 
@@ -318,4 +325,5 @@ const AccountList = () => {
         </CRow>
     )
 }
+
 export default AccountList
