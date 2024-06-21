@@ -19,6 +19,7 @@ import {
     CTableHead,
     CTableHeaderCell,
     CTableRow,
+    CAlert
 } from '@coreui/react'
 import React, { useEffect, useState } from 'react'
 import UserStorage from '../../util/UserStorage'
@@ -27,12 +28,12 @@ import fetchData from '../../util/ApiConnection'
 
 const AccountList = () => {
     const [data, setData] = useState([])
-
     const [editingRow, setEditingRow] = useState(null)
     const [formData, setFormData] = useState({})
     const [userInfo, setUserInfo] = useState(UserStorage.getAuthenticatedUser())
     const [visible, setVisible] = useState(false)
     const [deleteId, setDeleteId] = useState(null)
+    const [errorMessage, setErrorMessage] = useState('')
 
     const handleEdit = (id) => {
         setEditingRow(id)
@@ -43,53 +44,55 @@ const AccountList = () => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
     }
 
-    const handleSave = () => {
-        console.log(formData)
-        const newData = data.map((row) => {
-            if (row.id === editingRow) {
-                return { ...row, ...formData }
-            }
-            return row
-        })
-        const dataFromInput = newData[editingRow - 1]
-
-        let roleId = 2;
-        if (dataFromInput.roleName.toUpperCase() === 'ADMIN') {
-            roleId = 1;
-        } else if (dataFromInput.roleName.toUpperCase() === 'STAFF') {
-            roleId = 2;
-        } else if (dataFromInput.roleName.toUpperCase() === 'MANAGER') {
-            roleId = 3;
-        }
-        const savedData = {
-            username: dataFromInput.username || "string",
-            fullName: dataFromInput.fullName || "string",
-            password: dataFromInput.password || ".!rJ/;ikPV-5Ji3EFk(", // Using default password if not provided
-            phone: dataFromInput.phone || "0374422448", // Using default phone if not provided
-            email: dataFromInput.email || "string",
-            address: dataFromInput.address || "string",
-            avatar: "", // Default value
-            birthday: convertDateToJavaFormat(dataFromInput.birthday) || "2024-06-16T08:48:44.695Z", // Default date
-            status: dataFromInput.status ? true : false,
-            roleId
-        };
-        console.log(savedData)
-
-        fetchData(`http://localhost:8080/api/v1/users/id/${editingRow}`, 'GET', null, userInfo.accessToken)
-            .then((data) => {
-                if (data.status === "SUCCESS") {
-                    fetchData(`http://localhost:8080/api/v1/users/id/${editingRow}`, 'PUT', savedData, userInfo.accessToken)
-                } else {
-                    fetchData(`http://localhost:8080/api/v1/users`, 'POST', savedData, userInfo.accessToken)
+    const handleSave = async () => {
+        try {
+            console.log(formData)
+            const newData = data.map((row) => {
+                if (row.id === editingRow) {
+                    return { ...row, ...formData }
                 }
+                return row
             })
+            const dataFromInput = newData[editingRow - 1]
 
-        setData(newData)
-        setEditingRow(null)
+            let roleId = 2;
+            if (dataFromInput.roleName.toUpperCase() === 'ADMIN') {
+                roleId = 1;
+            } else if (dataFromInput.roleName.toUpperCase() === 'STAFF') {
+                roleId = 2;
+            } else if (dataFromInput.roleName.toUpperCase() === 'MANAGER') {
+                roleId = 3;
+            }
+            const savedData = {
+                username: dataFromInput.username || "string",
+                fullName: dataFromInput.fullName || "string",
+                password: dataFromInput.password || ".!rJ/;ikPV-5Ji3EFk(", // Using default password if not provided
+                phone: dataFromInput.phone || "0374422448", // Using default phone if not provided
+                email: dataFromInput.email || "string",
+                address: dataFromInput.address || "string",
+                avatar: "", // Default value
+                birthday: convertDateToJavaFormat(dataFromInput.birthday) || "2024-06-16T08:48:44.695Z", // Default date
+                status: dataFromInput.status ? true : false,
+                roleId
+            };
+            console.log(savedData)
 
-        setTimeout(() => {
-            refreshData()
-        }, 1000)
+            const existingUserResponse = await fetchData(`http://localhost:8080/api/v1/users/id/${editingRow}`, 'GET', null, userInfo.accessToken)
+            if (existingUserResponse.status === "SUCCESS") {
+                await fetchData(`http://localhost:8080/api/v1/users/id/${editingRow}`, 'PUT', savedData, userInfo.accessToken)
+            } else {
+                await fetchData(`http://localhost:8080/api/v1/users`, 'POST', savedData, userInfo.accessToken)
+            }
+
+            setData(newData)
+            setEditingRow(null)
+
+            setTimeout(() => {
+                refreshData()
+            }, 1000)
+        } catch (error) {
+            setErrorMessage('Failed to save account information. Please try again.')
+        }
     }
 
     const handleAddNew = () => {
@@ -109,22 +112,28 @@ const AccountList = () => {
         setEditingRow(newRow.id)
     }
 
-    const handleDelete = (id) => {
-        setVisible(false)
-        setData(data.filter((row) => row.id !== id))
-        fetchData(`http://localhost:8080/api/v1/users/${deleteId}`, 'DELETE', null, userInfo.accessToken)
-        setDeleteId(null)
+    const handleDelete = async (id) => {
+        try {
+            setVisible(false)
+            setData(data.filter((row) => row.id !== id))
+            await fetchData(`http://localhost:8080/api/v1/users/${deleteId}`, 'DELETE', null, userInfo.accessToken)
+            setDeleteId(null)
 
-        setTimeout(() => {
-            refreshData()
-        }, 1000)
+            setTimeout(() => {
+                refreshData()
+            }, 1000)
+        } catch (error) {
+            setErrorMessage('Failed to delete account. Please try again.')
+        }
     }
 
-    const refreshData = () => {
-        fetchData("http://localhost:8080/api/v1/users", 'GET', null, userInfo.accessToken)
-            .then(data => {
-                setData(data.payload)
-            })
+    const refreshData = async () => {
+        try {
+            const response = await fetchData("http://localhost:8080/api/v1/users", 'GET', null, userInfo.accessToken)
+            setData(response.payload)
+        } catch (error) {
+            setErrorMessage('Failed to fetch account information. Please try again.')
+        }
     }
 
     useEffect(() => {
@@ -139,6 +148,11 @@ const AccountList = () => {
                         <strong>Account List</strong>
                     </CCardHeader>
                     <CCardBody>
+                        {errorMessage && (
+                            <CAlert color="danger" onClose={() => setErrorMessage('')}>
+                                {errorMessage}
+                            </CAlert>
+                        )}
                         <div style={{ height: '500px', overflow: 'auto' }}>
                             <CTable>
                                 <CTableHead>

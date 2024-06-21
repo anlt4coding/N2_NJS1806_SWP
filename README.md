@@ -17,13 +17,13 @@ The software is designed to manage jewelry sales for a company operating a singl
 - **Account Management**: View account, create account, edit account, and delete account.
 - **Profile Management**: View and update profile.
 - **Staff Management**: Search, create, edit, and delete staff members.
-- **Billing and Sales**: View, create, update, and delete promotions.
-- **Promotion Management**: View and edit policies.
-- **Customer Interaction**: Create, update, delete, and view orders.
-- **Product Management**: Add, update, and view stalls.
-- **Store and Stall Management**: Add, update, delete, and view customers.
-- **Policy Management**: Add, edit, view, and delete products in the stall.
-- **Statistics and Reports**: Product, staff, revenue, and orders dashboards.
+- **Billing and Sales**: Create bill, update bill and export bill.
+- **Promotion Management**: View, create, update, and delete promotions.
+- **Customer Interaction**: View Customer Purchase History and Input Customer Info.
+- **Product Management**: Import Product by Barcode, Import Product by Product Code, Remove Product out of Bill, Add Product to Stall, Buy Old Products, Update Product in Stall and View Product in Stall.
+- **Store and Stall Management**: Add, update stall.
+- **Policy Management**: View Return and Exchange Policy and Edit Return and Exchange Policy.
+- **Statistics and Reports**: View Each Stall's Revenue, View Each Stall's Orders Statistics, View Each Stall's Product Report, View Revenue of All Stalls, View Staff Statistics, View Orders Statistics and View Products Statistics.
 
 ## Technologies Used
 - **Backend**:
@@ -44,62 +44,61 @@ The software is designed to manage jewelry sales for a company operating a singl
 ## Team Member Assignment Table
 
 ### Table 1: User Stories of Each Sprint
-| Sprint   | User Story ID | Description                |
+| Sprint   | User Story ID  | Description                |
 |----------|----------------|----------------------------|
-| Sprint 1 | N1JS1802-10    | Login                      |
-|          | N1JS1802-11    | Logout                     |
-|          | N1JS1802-12    | Reset Password             |
-|          | N1JS1802-13    | View Account               |
-|          | N1JS1802-14    | Create Account             |
-|          | N1JS1802-15    | Edit Account               |
-|          | N1JS1802-16    | Delete Account             |
-|          | N1JS1802-17    | View Profile               |
-|          | N1JS1802-18    | Update Profile             |
-| Sprint 2 | N1JS1802-19    | Search Staff               |
-|          | N1JS1802-20    | Create Staff               |
-|          | N1JS1802-21    | Edit Staff                 |
-|          | N1JS1802-22    | Delete Staff               |
-|          | N1JS1802-32    | View Promotion             |
-|          | N1JS1802-35    | Create Promotion           |
-|          | N1JS1802-37    | Update Promotion           |
-|          | N1JS1802-38    | Delete Promotion           |
-|          | N1JS1802-25    | View Policies              |
-|          | N1JS1802-29    | Edit Policies              |
-|          | N1JS1802-30    | Delete Policies            |
-|          | N1JS1802-23    | Create Orders              |
-|          | N1JS1802-24    | Update Orders              |
-|          | N1JS1802-26    | Delete Orders              |
-|          | N1JS1802-28    | View Orders                |
-| Sprint 3 | N1JS1802-31    | Print bill from Order      |
-|          | N1JS1802-33    | Export bills               |
-|          | N1JS1802-36    | Import product by barcode  |
-|          | N1JS1802-39    | Apply Promotion to Order   |
-|          | N1JS1802-40    | Add stall                  |
-|          | N1JS1802-41    | Update stall               |
-|          | N1JS1802-43    | View stall                 |
-|          | N1JS1802-53    | Add customers              |
-|          | N1JS1802-54    | Update customers           |
-|          | N1JS1802-55    | Delete customers           |
-|          | N1JS1802-56    | View customers             |
-| Sprint 4 | N1JS1802-42    | Add Product to Stall       |
-|          | N1JS1802-44    | Edit Product               |
-|          | N1JS1802-45    | View Products in Stall     |
-|          | N1JS1802-46    | Delete Product             |
-|          | N1JS1802-47    | Product Dashboard          |
-|          | N1JS1802-48    | Staff Dashboard            |
-|          | N1JS1802-49    | Revenue Dashboard          |
-|          | N1JS1802-50    | Create Policies            |
-|          | N1JS1802-51    | Orders Dashboard           |
+| Sprint 1 | N2NJS1806-65   | Login                      |
+|          | N2NJS1806-67   | Logout                     |
+|          | N2NJS1806-68   | Reset Password             |
+|          | N2NJS1806-69   | View Account               |
+|          | N2NJS1806-70   | Create Account             |
+|          | N2NJS1806-71   | Edit Account               |
+|          | N2NJS1806-72   | Delete Account             |
+| Sprint 2 | ...    | View Profile               |
+|          | ...    | Update Profile             |
+|          | ...    | Search Staff               |
+|          | ...    | Create Staff               |
+|          | ...    | Edit Staff                 |
+|          | ...    | Delete Staff               |
+|          | ...    | View Promotion             |
+|          | ...    | Create Promotion           |
+|          | ...    | Update Promotion           |
+|          | ...    | Delete Promotion           |
+|          | ...    | View Policies              |
+|          | ...    | Edit Policies              |
+|          | ...    | Delete Policies            |
+|          | ...    | Create Orders              |
+|          | ...    | Update Orders              |
+|          | ...    | Delete Orders              |
+|          | ...    | View Orders                |
+| Sprint 3 | ...    | Print bill from Order      |
+|          | ...    | Export bills               |
+|          | ...    | Import product by barcode  |
+|          | ...    | Apply Promotion to Order   |
+|          | ...    | Add stall                  |
+|          | ...    | Update stall               |
+|          | ...    | View stall                 |
+|          | ...    | Add customers              |
+|          | ...    | Update customers           |
+|          | ...    | Delete customers           |
+|          | ...    | View customers             |
+| Sprint 4 | ...    | Add Product to Stall       |
+|          | ...    | Edit Product               |
+|          | ...    | View Products in Stall     |
+|          | ...    | Delete Product             |
+|          | ...    | Product Dashboard          |
+|          | ...    | Staff Dashboard            |
+|          | ...    | Revenue Dashboard          |
+|          | ...    | Create Policies            |
+|          | ...    | Orders Dashboard           |
 
 ### Table 2: Member Assignment for Sprint 1
 | Member Name | User Story ID | Description            |
 |-------------|---------------|------------------------|
-| Le Thanh Binh    | N1JS1802-10   | Login                  |
-| Le Thanh Binh    | N1JS1802-11   | Logout                 |
-| Le Xuan Phuong Nam    | N1JS1802-12   | Reset Password         |
-| Le Xuan Phuong Nam    | N1JS1802-13   | View Account           |
-| Le Xuan Phuong Nam    | N1JS1802-14   | Create Account         |
-| Nguyen Thanh Phong    | N1JS1802-15   | Edit Account           |
-| Nguyen Thanh Phong    | N1JS1802-16   | Delete Account         |
-| Tran Nhat Quang    | N1JS1802-17   | View Profile           |
-| Tran Nhat Quang    | N1JS1802-18   | Update Profile         |
+| Do Trong Minh    | N1JS1802-10   | Login                  |
+| Le Thu An    | N1JS1802-11   | Logout                 |
+| Do Trong Minh    | N1JS1802-12   | Reset Password         |
+| ...    | N1JS1802-13   | View Account           |
+| ...    | N1JS1802-14   | Create Account         |
+| ...    | N1JS1802-15   | Edit Account           |
+| ...    | N1JS1802-16   | Delete Account         |
+
