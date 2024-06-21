@@ -94,11 +94,11 @@ The software is designed to manage jewelry sales for a company operating a singl
 ### Table 2: Member Assignment for Sprint 1
 | Member Name | User Story ID | Description            |
 |-------------|---------------|------------------------|
-| Do Trong Minh    | N1JS1802-10   | Login                  |
-| Le Thu An    | N1JS1802-11   | Logout                 |
-| Do Trong Minh    | N1JS1802-12   | Reset Password         |
-| ...    | N1JS1802-13   | View Account           |
-| ...    | N1JS1802-14   | Create Account         |
-| ...    | N1JS1802-15   | Edit Account           |
-| ...    | N1JS1802-16   | Delete Account         |
+| Do Trong Minh    | N2NJS1806-65   | Login                  |
+| Le Thu An    | N2NJS1806-67   | Logout                 |
+| Do Trong Minh    | N2NJS1806-68   | Reset Password         |
+| ...    | N2NJS1806-69   | View Account           |
+| ...    | N2NJS1806-70   | Create Account         |
+| ...    | N2NJS1806-71   | Edit Account           |
+| ...    | N2NJS1806-72   | Delete Account         |
 
